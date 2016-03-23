@@ -16,4 +16,6 @@ Please see [example](example/server.go).
 
 ## Response
 
+Please read [detail information](https://github.com/fukata/golang-stats-api-handler#toc3)
+
 ![response screenshot](screenshot/response.png)
