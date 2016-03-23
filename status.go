@@ -1,8 +1,8 @@
 package status
 
 import (
-	"github.com/gin-gonic/gin"
 	api "github.com/fukata/golang-stats-api-handler"
+	"github.com/gin-gonic/gin"
 )
 
 func StatusHandler(c *gin.Context) {
