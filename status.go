@@ -5,6 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// StatusHandler is gin handle for get system status.
 func StatusHandler(c *gin.Context) {
 	c.JSON(200, api.GetStats())
 }
