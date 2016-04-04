@@ -1,28 +1,34 @@
 package status
 
 import (
-	"encoding/json"
-	"github.com/appleboy/gin-jwt-server/tests"
+	"github.com/appleboy/gofight"
+	"github.com/buger/jsonparser"
 	"github.com/stretchr/testify/assert"
-	"log"
+	"github.com/gin-gonic/gin"
 	"net/http"
-	"net/http/httptest"
 	"testing"
 )
 
+func httpRouter() *gin.Engine {
+	gin.SetMode(gin.TestMode)
+	r := gin.New()
+
+	r.GET("/api/status", StatusHandler)
+
+	return r
+}
+
 func TestStatusHandler(t *testing.T) {
 
-	tests.RunSimpleGet("/api/status",
-		StatusHandler,
-		func(r *httptest.ResponseRecorder) {
-			var rd map[string]interface{}
-			err := json.NewDecoder(r.Body).Decode(&rd)
+	r := gofight.New()
 
-			if err != nil {
-				log.Fatalf("JSON Decode fail: %v", err)
-			}
+	r.GET("/api/status").
+		Run(httpRouter(), func(r gofight.HTTPResponse, rq gofight.HTTPRequest) {
+			data := []byte(r.Body.String())
 
-			assert.NotEmpty(t, rd["go_version"])
-			assert.Equal(t, r.Code, http.StatusOK)
+			value, _ := jsonparser.GetString(data, "go_version")
+
+			assert.NotEmpty(t, value)
+			assert.Equal(t, http.StatusOK, r.Code)
 		})
 }
