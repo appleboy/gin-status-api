@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	api "github.com/appleboy/gin-status-api"
 	"github.com/fvbock/endless"
+	"github.com/gin-gonic/gin"
+	api "gopkg.in/appleboy/gin-status-api.v1"
 )
 
 func main() {
