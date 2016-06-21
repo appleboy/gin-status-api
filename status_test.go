@@ -1,10 +1,10 @@
 package status
 
 import (
-	"github.com/appleboy/gofight"
 	"github.com/buger/jsonparser"
-	"github.com/stretchr/testify/assert"
 	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"
+	"gopkg.in/appleboy/gofight.v1"
 	"net/http"
 	"testing"
 )
