@@ -1,8 +1,8 @@
 package status
 
 import (
-	api "github.com/fukata/golang-stats-api-handler"
 	"github.com/gin-gonic/gin"
+	api "gopkg.in/fukata/golang-stats-api-handler.v1"
 	"net/http"
 )
 
