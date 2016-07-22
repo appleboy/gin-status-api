@@ -1,0 +1,12 @@
+package: github.com/appleboy/gin-status-api
+import:
+- package: github.com/fvbock/endless
+- package: github.com/gin-gonic/gin
+- package: gopkg.in/appleboy/gin-status-api.v1
+- package: gopkg.in/fukata/golang-stats-api-handler.v1
+testImport:
+- package: github.com/buger/jsonparser
+- package: github.com/stretchr/testify
+  subpackages:
+  - assert
+- package: gopkg.in/appleboy/gofight.v1
