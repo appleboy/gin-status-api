@@ -1,10 +1,10 @@
-hash: 9c42fd38893a0edcd93e82b21acd8bb19026cda39fab361daf6f997be097560b
-updated: 2016-07-23T00:25:58.217473666+08:00
+hash: 3190e3df1a6360e48cae98d3b8ab73c5e433b2b9fc14d1dd7572b10c9d0f8ef4
+updated: 2017-03-08T22:27:43.407916923+08:00
 imports:
 - name: github.com/fvbock/endless
-  version: 2cdc20a776897c0f406853c048c33e2c1a9f0ebf
+  version: 447134032cb6a86814f570257390a379982dfc61
 - name: github.com/gin-gonic/gin
-  version: f931d1ea80ae95a6fc739213cdd9399bd2967fb6
+  version: e2212d40c62a98b388a5eb48ecbdcf88534688ba
   subpackages:
   - binding
   - render
@@ -14,53 +14,40 @@ imports:
   - proto
 - name: github.com/manucorporat/sse
   version: ee05b128a739a0fb76c7ebd3ae4810c1de808d6d
+- name: github.com/mattn/go-isatty
+  version: 57fdcb988a5c543893cc61bce354a6e24ab70022
 - name: golang.org/x/net
   version: f315505cf3349909cdf013ea56690da34e96a451
   subpackages:
   - context
+- name: golang.org/x/sys
+  version: d67a3279aecd76a65c4c9e6c352c888f5b3a574a
+  subpackages:
+  - unix
 - name: gopkg.in/appleboy/gin-status-api.v1
   version: d41a075a5a6883245b7fdefbefd4fa4d1462e1f1
 - name: gopkg.in/fukata/golang-stats-api-handler.v1
   version: 90f0b59102629831cc109845475a8d77043412ec
+- name: gopkg.in/gin-gonic/gin.v1
+  version: e2212d40c62a98b388a5eb48ecbdcf88534688ba
 - name: gopkg.in/go-playground/validator.v8
   version: c193cecd124b5cc722d7ee5538e945bdb3348435
 - name: gopkg.in/yaml.v2
-  version: e4d366fc3c7938e2958e662b4258c7a89e1f0e3e
+  version: a3f3340b5840cee44f372bddb5880fcbc419b46a
 testImports:
 - name: github.com/buger/jsonparser
-  version: 16b91a7a5c68f51ef0a249ef2b554a76244b475c
+  version: 6bd16707875b997f7a60327f888a28a3d28cf8c2
 - name: github.com/davecgh/go-spew
   version: 5215b55f46b2b919f50a1df0eaa5886afe4e3b3d
   subpackages:
   - spew
-- name: github.com/labstack/echo
-  version: 579cb79a41a2e931699bad83111728d78aa11d48
-  subpackages:
-  - engine
-  - test
-  - log
-- name: github.com/labstack/gommon
-  version: 445cf40e6de4cbef35daf3285ff5212c91e78262
-  subpackages:
-  - log
-  - color
-- name: github.com/mattn/go-colorable
-  version: 9056b7a9f2d1f2d96498d6d146acd1f9d5ed3d59
-- name: github.com/mattn/go-isatty
-  version: 56b76bdf51f7708750eac80fa38b952bb9f32639
 - name: github.com/pmezard/go-difflib
   version: 792786c7400a136282c1664665ae0a8db921c6c2
   subpackages:
   - difflib
 - name: github.com/stretchr/testify
-  version: d77da356e56a7428ad25149ca77381849a6a5232
+  version: 4d4bfba8f1d1027c4fdbe371823030df51419987
   subpackages:
   - assert
-- name: github.com/valyala/fasttemplate
-  version: 3b874956e03f1636d171bda64b130f9135f42cff
-- name: golang.org/x/sys
-  version: a646d33e2ee3172a661fc09bca23bb4889a41bc8
-  subpackages:
-  - unix
-- name: gopkg.in/appleboy/gofight.v1
-  version: 1a36a6d5ab10fba252a9cbecb1bcb72f9a2e6770
+- name: gopkg.in/appleboy/gofight.v2
+  version: beadc315fb676177c07a89c34159b9ca4e1aafd9
