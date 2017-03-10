@@ -1,9 +1,10 @@
 package status
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	api "gopkg.in/fukata/golang-stats-api-handler.v1"
-	"net/http"
 )
 
 // StatusHandler is gin handle for get system status.
