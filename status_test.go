@@ -1,12 +1,13 @@
 package status
 
 import (
+	"net/http"
+	"testing"
+
 	"github.com/buger/jsonparser"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
-	"gopkg.in/appleboy/gofight.v1"
-	"net/http"
-	"testing"
+	"gopkg.in/appleboy/gofight.v2"
 )
 
 func httpRouter() *gin.Engine {
