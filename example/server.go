@@ -1,9 +1,8 @@
 package main
 
 import (
-	"github.com/fvbock/endless"
-	"github.com/gin-gonic/gin"
 	api "github.com/appleboy/gin-status-api"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -13,5 +12,5 @@ func main() {
 
 	r.GET("/api/status", api.StatusHandler)
 
-	endless.ListenAndServe(":8080", r)
+	r.Run() // listen and serve on 0.0.0.0:8080
 }
