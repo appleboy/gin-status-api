@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/fvbock/endless"
 	"github.com/gin-gonic/gin"
-	api "gopkg.in/appleboy/gin-status-api.v1"
+	api "github.com/appleboy/gin-status-api"
 )
 
 func main() {
