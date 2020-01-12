@@ -7,10 +7,8 @@ import (
 
 func main() {
 	r := gin.New()
-	r.Use(gin.Logger())
-	r.Use(gin.Recovery())
 
-	r.GET("/api/status", api.StatusHandler)
+	r.GET("/api/status", api.GinHandler)
 
 	r.Run() // listen and serve on 0.0.0.0:8080
 }

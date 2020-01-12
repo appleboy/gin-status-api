@@ -14,7 +14,7 @@ func httpRouter() *gin.Engine {
 	gin.SetMode(gin.TestMode)
 	r := gin.New()
 
-	r.GET("/api/status", StatusHandler)
+	r.GET("/api/status", GinHandler)
 
 	return r
 }

@@ -3,11 +3,11 @@ package status
 import (
 	"net/http"
 
+	api "github.com/fukata/golang-stats-api-handler"
 	"github.com/gin-gonic/gin"
-	api "gopkg.in/fukata/golang-stats-api-handler.v1"
 )
 
-// StatusHandler is gin handle for get system status.
-func StatusHandler(c *gin.Context) {
+// GinHandler is gin handle for get system status.
+func GinHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, api.GetStats())
 }
