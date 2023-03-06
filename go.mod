@@ -4,7 +4,7 @@ go 1.13
 
 require (
 	github.com/appleboy/gofight/v2 v2.1.2
-	github.com/buger/jsonparser v0.0.0-20191204142016-1a29609e0929
+	github.com/buger/jsonparser v1.1.1
 	github.com/fukata/golang-stats-api-handler v1.0.0
 	github.com/gin-gonic/gin v1.6.3
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
