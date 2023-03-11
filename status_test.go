@@ -20,14 +20,11 @@ func httpRouter() *gin.Engine {
 }
 
 func TestStatusHandler(t *testing.T) {
-
 	r := gofight.New()
 
 	r.GET("/api/status").
 		Run(httpRouter(), func(r gofight.HTTPResponse, rq gofight.HTTPRequest) {
-			data := []byte(r.Body.String())
-
-			value, _ := jsonparser.GetString(data, "go_version")
+			value, _ := jsonparser.GetString(r.Body.Bytes(), "go_version")
 
 			assert.NotEmpty(t, value)
 			assert.Equal(t, http.StatusOK, r.Code)
