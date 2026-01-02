@@ -1,6 +1,7 @@
 package status
 
 import (
+	"context"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -41,7 +42,7 @@ func TestGinHandler_ResponseStructure(t *testing.T) {
 			assert.Equal(t, http.StatusOK, r.Code)
 
 			// Test content type
-			assert.Contains(t, r.HeaderMap.Get("Content-Type"), "application/json")
+			assert.Contains(t, (*httptest.ResponseRecorder)(r).Result().Header.Get("Content-Type"), "application/json")
 
 			body := r.Body.Bytes()
 
@@ -118,7 +119,7 @@ func TestGinHandler_MultipleRequests(t *testing.T) {
 	// Test multiple sequential requests
 	for i := 0; i < 5; i++ {
 		w := httptest.NewRecorder()
-		req, _ := http.NewRequest("GET", "/api/status", nil)
+		req, _ := http.NewRequestWithContext(context.Background(), "GET", "/api/status", nil)
 		router.ServeHTTP(w, req)
 
 		assert.Equal(t, http.StatusOK, w.Code)
@@ -135,7 +136,7 @@ func BenchmarkGinHandler(b *testing.B) {
 	router.GET("/api/status", GinHandler)
 
 	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/api/status", nil)
+	req, _ := http.NewRequestWithContext(context.Background(), "GET", "/api/status", nil)
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
