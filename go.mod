@@ -3,7 +3,7 @@ module github.com/appleboy/gin-status-api
 go 1.24.0
 
 require (
-	github.com/appleboy/gofight/v2 v2.1.2
+	github.com/appleboy/gofight/v2 v2.2.0
 	github.com/buger/jsonparser v1.1.1
 	github.com/fukata/golang-stats-api-handler v1.0.0
 	github.com/gin-gonic/gin v1.11.0
