@@ -4,7 +4,7 @@ go 1.24.0
 
 require (
 	github.com/appleboy/gofight/v2 v2.1.2
-	github.com/buger/jsonparser v1.1.1
+	github.com/buger/jsonparser v1.1.2
 	github.com/fukata/golang-stats-api-handler v1.0.0
 	github.com/gin-gonic/gin v1.11.0
 	github.com/stretchr/testify v1.11.1
