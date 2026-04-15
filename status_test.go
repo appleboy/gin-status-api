@@ -42,7 +42,7 @@ func TestGinHandler_ResponseStructure(t *testing.T) {
 			assert.Equal(t, http.StatusOK, r.Code)
 
 			// Test content type
-			assert.Contains(t, (*httptest.ResponseRecorder)(r).Result().Header.Get("Content-Type"), "application/json")
+			assert.Contains(t, r.Result().Header.Get("Content-Type"), "application/json")
 
 			body := r.Body.Bytes()
 
