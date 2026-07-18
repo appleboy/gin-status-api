@@ -1,9 +1,9 @@
 module github.com/appleboy/gin-status-api
 
-go 1.25.0
+go 1.25.10
 
 require (
-	github.com/appleboy/gofight/v2 v2.2.1
+	github.com/appleboy/gofight/v2 v2.2.2
 	github.com/buger/jsonparser v1.1.2
 	github.com/fukata/golang-stats-api-handler v1.0.0
 	github.com/gin-gonic/gin v1.12.0
