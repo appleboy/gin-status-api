@@ -2,7 +2,7 @@
 
 A system status monitoring API handler for the [Gin](https://github.com/gin-gonic/gin) framework that provides CPU, memory, garbage collection, and other runtime information for your Go applications.
 
-[![GoDoc](https://godoc.org/github.com/appleboy/gin-status-api?status.svg)](https://godoc.org/github.com/appleboy/gin-status-api)
+[![Go Reference](https://pkg.go.dev/badge/github.com/appleboy/gin-status-api.svg)](https://pkg.go.dev/github.com/appleboy/gin-status-api)
 [![Run Tests](https://github.com/appleboy/gin-status-api/actions/workflows/go.yml/badge.svg?branch=master)](https://github.com/appleboy/gin-status-api/actions/workflows/go.yml)
 [![Trivy Security Scan](https://github.com/appleboy/gin-status-api/actions/workflows/trivy-scan.yml/badge.svg?branch=master)](https://github.com/appleboy/gin-status-api/actions/workflows/trivy-scan.yml)
 [![codecov](https://codecov.io/gh/appleboy/gin-status-api/branch/master/graph/badge.svg)](https://codecov.io/gh/appleboy/gin-status-api)
