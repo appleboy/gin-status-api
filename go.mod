@@ -1,6 +1,6 @@
 module github.com/appleboy/gin-status-api
 
-go 1.26.0
+go 1.26.10
 
 require (
 	github.com/appleboy/gofight/v2 v2.2.1
