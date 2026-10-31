@@ -10,6 +10,7 @@ import (
 	"github.com/buger/jsonparser"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func httpRouter() *gin.Engine {
@@ -48,31 +49,31 @@ func TestGinHandler_ResponseStructure(t *testing.T) {
 
 			// Test required fields exist and have valid values
 			goVersion, err := jsonparser.GetString(body, "go_version")
-			assert.NoError(t, err)
+			require.NoError(t, err)
 			assert.NotEmpty(t, goVersion)
 
 			goOs, err := jsonparser.GetString(body, "go_os")
-			assert.NoError(t, err)
+			require.NoError(t, err)
 			assert.NotEmpty(t, goOs)
 
 			goArch, err := jsonparser.GetString(body, "go_arch")
-			assert.NoError(t, err)
+			require.NoError(t, err)
 			assert.NotEmpty(t, goArch)
 
 			cpuNum, err := jsonparser.GetInt(body, "cpu_num")
-			assert.NoError(t, err)
-			assert.Greater(t, cpuNum, int64(0))
+			require.NoError(t, err)
+			assert.Positive(t, cpuNum)
 
 			goroutineNum, err := jsonparser.GetInt(body, "goroutine_num")
-			assert.NoError(t, err)
+			require.NoError(t, err)
 			assert.GreaterOrEqual(t, goroutineNum, int64(0))
 
 			gomaxprocs, err := jsonparser.GetInt(body, "gomaxprocs")
-			assert.NoError(t, err)
-			assert.Greater(t, gomaxprocs, int64(0))
+			require.NoError(t, err)
+			assert.Positive(t, gomaxprocs)
 
 			cgoCalls, err := jsonparser.GetInt(body, "cgo_call_num")
-			assert.NoError(t, err)
+			require.NoError(t, err)
 			assert.GreaterOrEqual(t, cgoCalls, int64(0))
 		})
 }
@@ -88,27 +89,27 @@ func TestGinHandler_MemoryStats(t *testing.T) {
 
 			// Test memory related fields
 			memoryAlloc, err := jsonparser.GetInt(body, "memory_alloc")
-			assert.NoError(t, err)
+			require.NoError(t, err)
 			assert.GreaterOrEqual(t, memoryAlloc, int64(0))
 
 			memoryTotalAlloc, err := jsonparser.GetInt(body, "memory_total_alloc")
-			assert.NoError(t, err)
-			assert.Greater(t, memoryTotalAlloc, int64(0))
+			require.NoError(t, err)
+			assert.Positive(t, memoryTotalAlloc)
 
 			memorySys, err := jsonparser.GetInt(body, "memory_sys")
-			assert.NoError(t, err)
-			assert.Greater(t, memorySys, int64(0))
+			require.NoError(t, err)
+			assert.Positive(t, memorySys)
 
 			memoryLookups, err := jsonparser.GetInt(body, "memory_lookups")
-			assert.NoError(t, err)
+			require.NoError(t, err)
 			assert.GreaterOrEqual(t, memoryLookups, int64(0))
 
 			memoryMallocs, err := jsonparser.GetInt(body, "memory_mallocs")
-			assert.NoError(t, err)
-			assert.Greater(t, memoryMallocs, int64(0))
+			require.NoError(t, err)
+			assert.Positive(t, memoryMallocs)
 
 			memoryFrees, err := jsonparser.GetInt(body, "memory_frees")
-			assert.NoError(t, err)
+			require.NoError(t, err)
 			assert.GreaterOrEqual(t, memoryFrees, int64(0))
 		})
 }
@@ -117,15 +118,20 @@ func TestGinHandler_MultipleRequests(t *testing.T) {
 	router := httpRouter()
 
 	// Test multiple sequential requests
-	for i := 0; i < 5; i++ {
+	for range 5 {
 		w := httptest.NewRecorder()
-		req, _ := http.NewRequestWithContext(context.Background(), "GET", "/api/status", nil)
+		req, _ := http.NewRequestWithContext(
+			context.Background(),
+			http.MethodGet,
+			"/api/status",
+			nil,
+		)
 		router.ServeHTTP(w, req)
 
 		assert.Equal(t, http.StatusOK, w.Code)
 
 		goVersion, err := jsonparser.GetString(w.Body.Bytes(), "go_version")
-		assert.NoError(t, err)
+		require.NoError(t, err)
 		assert.NotEmpty(t, goVersion)
 	}
 }
@@ -136,7 +142,7 @@ func BenchmarkGinHandler(b *testing.B) {
 	router.GET("/api/status", GinHandler)
 
 	w := httptest.NewRecorder()
-	req, _ := http.NewRequestWithContext(context.Background(), "GET", "/api/status", nil)
+	req, _ := http.NewRequestWithContext(context.Background(), http.MethodGet, "/api/status", nil)
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {

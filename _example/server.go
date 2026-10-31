@@ -2,6 +2,7 @@ package main
 
 import (
 	api "github.com/appleboy/gin-status-api"
+
 	"github.com/gin-gonic/gin"
 )
 
