@@ -4,7 +4,6 @@ import (
 	"net/http"
 
 	api "github.com/fukata/golang-stats-api-handler"
-
 	"github.com/gin-gonic/gin"
 )
 
