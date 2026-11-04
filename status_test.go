@@ -121,7 +121,7 @@ func TestGinHandler_MultipleRequests(t *testing.T) {
 	for range 5 {
 		w := httptest.NewRecorder()
 		req, _ := http.NewRequestWithContext(
-			context.Background(),
+			t.Context(),
 			http.MethodGet,
 			"/api/status",
 			nil,
@@ -144,8 +144,7 @@ func BenchmarkGinHandler(b *testing.B) {
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequestWithContext(context.Background(), http.MethodGet, "/api/status", nil)
 
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		w.Body.Reset()
 		router.ServeHTTP(w, req)
 	}
